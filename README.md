@@ -3,3 +3,42 @@
 ##### Instalar
 
     npm i socket.io socket.io-client
+
+##### Ajustes en el lado del servidor archivo server.js:
+
+    Revisar el nombre del evento: Asegúrate de que los nombres de los eventos sean coherentes en el lado del cliente y el servidor. En tu código del servidor, estás usando el evento "message", mientras que en el cliente estás usando "mensaje". Deben coincidir.
+
+    Configurar CORS en el servidor: Para permitir que tu cliente Next.js se conecte al servidor de Socket.IO, es posible que necesites configurar CORS correctamente.
+
+###### Ajustes en el lado del cliente archivo app/chat/page.jsx:
+
+    Asegúrate de que el cliente está conectado a la URL correcta del servidor.
+    Usar el nombre del evento que coincide con el servidor.
+
+
+    Asegúrate de que los nombres de los eventos ("mensaje") coincidan en el cliente y el servidor.
+    Configura CORS en el servidor para permitir las conexiones desde el origen de tu aplicación Next.js.
+    Verifica que la URL de conexión del cliente apunte correctamente a tu servidor de Socket.IO.
+    Con estos ajustes, deberías poder recibir los mensajes correctamente en tu aplicación de chat en tiempo real.
+
+##### socket.io-client
+
+    La librería socket.io-client se utiliza para permitir la comunicación en tiempo real entre clientes (generalmente navegadores web) y un servidor que utiliza Socket.IO. Aquí te dejo un resumen de para qué sirve y cómo se usa:
+    Propósito de socket.io-client
+
+    Comunicación en tiempo real: Permite a los clientes comunicarse con el servidor en tiempo real mediante WebSockets, lo que proporciona una conexión persistente y bidireccional.
+    Eventos personalizados: Facilita la emisión y escucha de eventos personalizados entre el cliente y el servidor, lo que es útil para aplicaciones que necesitan reaccionar a eventos específicos.
+    Fallback a HTTP: Si los WebSockets no están disponibles, socket.io-client puede utilizar otros mecanismos de transporte como HTTP long-polling, asegurando la conectividad.
+    Conexión robusta: Maneja automáticamente la reconexión en caso de desconexiones, lo que mejora la robustez de la aplicación.
+
+##### archivo server.js:
+
+    El archivo server.js en un proyecto Next.js con Socket.IO tiene la función de configurar y ejecutar el servidor de la aplicación, proporcionando la infraestructura necesaria para manejar tanto las solicitudes HTTP regulares como las conexiones WebSocket para la comunicación en tiempo real.
+
+    Resumen
+
+    Servidor Next.js: Usas socket.io para habilitar comunicación en tiempo real en el lado del servidor.
+    Cliente Next.js: Usas socket.io-client para conectar tu aplicación cliente al servidor de Socket.IO.
+    Comunicación en tiempo real: Puedes enviar y recibir eventos y datos en tiempo real entre el cliente y el servidor, mejorando la interactividad de tu aplicación.
+
+    Esto permite que tu aplicación Next.js soporte funcionalidades de tiempo real de manera eficiente y escalable.
