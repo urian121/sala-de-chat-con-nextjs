@@ -27,12 +27,14 @@ app.prepare().then(() => {
     // Evento cuando un cliente se conecta
     console.log("Cliente conectado");
 
+    // Creando evento 'mensaje'
     socket.on("mensaje", (msg) => {
       // Evento cuando se recibe un mensaje del cliente
       console.log("Mensaje recibido:", msg);
       io.emit("mensaje", msg); // Emitir el mensaje a todos los clientes conectados
     });
 
+    // Creando evento 'disconnect'
     socket.on("disconnect", () => {
       // Evento cuando un cliente se desconecta
       console.log("Cliente desconectado");

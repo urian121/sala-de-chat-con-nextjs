@@ -42,3 +42,5 @@
     Comunicación en tiempo real: Puedes enviar y recibir eventos y datos en tiempo real entre el cliente y el servidor, mejorando la interactividad de tu aplicación.
 
     Esto permite que tu aplicación Next.js soporte funcionalidades de tiempo real de manera eficiente y escalable.
+
+    https://www.youtube.com/watch?v=-C79UgTklVY
