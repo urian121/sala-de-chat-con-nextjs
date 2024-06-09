@@ -11,7 +11,7 @@ export default function ListaMensajes({ mensajes }) {
                 width={44}
                 height={44}
                 className="chat-msg-img"
-                src="https://www.urianviera.com/_image?href=%2F_astro%2F6.g6aJEwBH.jpg&f=webp"
+                src="/imgs/user_9.jpg"
                 alt=""
               />
               <div className="chat-msg-date">{mensaje.hora}</div>
@@ -27,7 +27,7 @@ export default function ListaMensajes({ mensajes }) {
                 width={44}
                 height={44}
                 className="chat-msg-img"
-                src="/imgs/user_10x.jpg"
+                src="/imgs/user_8.svg"
                 alt=""
               />
               <div className="chat-msg-date">{mensaje.hora}</div>

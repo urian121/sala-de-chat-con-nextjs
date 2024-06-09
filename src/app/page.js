@@ -37,12 +37,15 @@ export default function Home() {
       console.log("Desconectado del servidor");
     });
 
+    // Escucha el evento 'mensaje' del socket
     newSocket.on("mensaje", (msg) => {
-      console.log("Llego el mensaje: ", msg);
+      console.log("tengo un nuevo mensaje");
       setMensajes((prevMensajes) => [...prevMensajes, msg]);
     });
 
+    // Escucha el evento 'typing' del socket
     newSocket.on("typing", (isTyping) => {
+      console.log("llegue a typing", isTyping);
       setTyping(isTyping);
     });
 
@@ -77,9 +80,9 @@ export default function Home() {
         hora: new Date().toLocaleString(),
       };
 
-      console.log(socket);
-      console.log(socket.id);
-      console.log("Emitiendo mensaje", nuevoMensaje);
+      // console.log(socket);
+      // console.log(socket.id);
+      // console.log("Emitiendo mensaje", nuevoMensaje);
 
       socket.emit("mensaje", mensajeConFecha);
       setNuevoMensaje("");
