@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
+import Mensajes from "../components/ListaMensajes";
 
 const Chat = () => {
   const [nuevoMensaje, setNuevoMensaje] = useState("");
@@ -59,7 +60,7 @@ const Chat = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>Chat en tiempo real</h1>
       <div>
         <input
@@ -81,7 +82,9 @@ const Chat = () => {
           <li key={index}>{msg}</li>
         ))}
       </ol>
-    </div>
+
+      <Mensajes mensajes={mensajes} />
+    </>
   );
 };
 
