@@ -44,3 +44,15 @@
     Esto permite que tu aplicación Next.js soporte funcionalidades de tiempo real de manera eficiente y escalable.
 
     https://www.youtube.com/watch?v=-C79UgTklVY
+
+##### Notas
+
+    io.emit: Emitirá el evento a todos los clientes, incluyendo al que lo envió.
+    socket.broadcast.emit: Emitirá el evento a todos los clientes excepto al que lo envió.
+    socket.on("typing", (isTyping) => {
+        socket.broadcast.emit("typing", isTyping);
+      });
+
+    socket.on("typing", (isTyping) => {
+        io.emit("typing", isTyping);
+      });

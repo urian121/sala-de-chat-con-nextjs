@@ -1,4 +1,4 @@
-import Image from "next/image"; // Asegúrate de importar Image desde el paquete correcto
+import Image from "next/image";
 
 export default function ListaMensajes({ mensajes }) {
   return (

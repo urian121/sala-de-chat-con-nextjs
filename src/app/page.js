@@ -14,15 +14,17 @@ import {
 } from "lucide-react";
 import InputChat from "./components/InputChat";
 import ListaMensajes from "./components/ListaMensajes";
+import useDarkMode from "./hooks/useDarkMode";
 
 export default function Home() {
   const [nuevoMensaje, setNuevoMensaje] = useState("");
   const [mensajes, setMensajes] = useState([]);
   const [socket, setSocket] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [typing, setTyping] = useState(false);
+  const [toggleDarkMode] = useDarkMode();
 
   useEffect(() => {
+    // Crea un nuevo socket
     const newSocket = io();
 
     newSocket.on("connect", () => {
@@ -61,18 +63,6 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
-  }, [isDarkMode]);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevMode) => !prevMode);
-  };
-
   const enviarMensaje = () => {
     if (nuevoMensaje.trim() !== "") {
       const mensajeConFecha = {
@@ -80,11 +70,8 @@ export default function Home() {
         hora: new Date().toLocaleString(),
       };
 
-      // console.log(socket);
-      // console.log(socket.id);
-      // console.log("Emitiendo mensaje", nuevoMensaje);
-
       socket.emit("mensaje", mensajeConFecha);
+      console.log("Emitiendo el mensaje", typing);
       setNuevoMensaje("");
     }
   };

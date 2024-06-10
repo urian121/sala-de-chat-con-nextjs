@@ -1,19 +1,23 @@
 "use client";
-import { useState } from "react";
 export default function InputChat({
   enviarMensaje,
   nuevoMensaje,
   setNuevoMensaje,
+  typing,
   setTyping,
   socket,
 }) {
   const handleChange = (e) => {
     setNuevoMensaje(e.target.value);
 
-    if (!typing) {
-      console.log("Estoy escribiendo...");
+    if (e.target.value && !typing) {
       setTyping(true);
+
+      console.log("Estoy escribiendo...", typing);
       socket.emit("typing", true);
+    } else if (!e.target.value && typing) {
+      setTyping(false);
+      socket.emit("typing", false);
     }
   };
 
@@ -22,6 +26,7 @@ export default function InputChat({
       console.log("Pulsaste Enter");
       enviarMensaje();
       setTyping(false);
+      console.log(typing);
       socket.emit("typing", false);
     }
   };
@@ -33,6 +38,7 @@ export default function InputChat({
 
   const handleBlur = () => {
     console.log("Click fuera del input");
+    setTyping(false);
     socket.emit("typing", false);
   };
 

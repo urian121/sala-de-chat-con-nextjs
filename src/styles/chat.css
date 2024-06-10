@@ -766,25 +766,31 @@ html {
     padding-right: 10px;
   }
 }
-.typing-indicator {
-  font-style: italic;
-  color: gray;
-  padding: 10px;
-}
 
 /*****/
+.tiblock {
+  background-color: #ccc;
+  padding: 5px 20px;
+  border-radius: 20px;
+  /*width: 100px;*/
+  margin-bottom: 10px;
+}
+.ticontainer {
+  margin: 0 auto;
+  text-align: center;
+}
 .ticontainer .tidot {
   background-color: #90949c;
   /*   background-color: #5746af; */
 }
 
 .tidot {
-  animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
-  border-radius: 3px;
+  animation: mercuryTypingAnimation 1s infinite ease-in-out;
+  border-radius: 5px;
   display: inline-block;
-  height: 7px;
+  height: 10px;
   margin-right: 8px;
-  width: 7px;
+  width: 10px;
 }
 
 @keyframes mercuryTypingAnimation {
