@@ -63,6 +63,11 @@ export default function Home() {
     };
   }, []);
 
+  const reproducirAudio = () => {
+    const audio = new Audio("/audio/audio_chat.mp3");
+    audio.play();
+  };
+
   const enviarMensaje = () => {
     if (nuevoMensaje.trim() !== "") {
       const mensajeConFecha = {
@@ -70,6 +75,7 @@ export default function Home() {
         hora: new Date().toLocaleString(),
       };
 
+      reproducirAudio();
       socket.emit("mensaje", mensajeConFecha);
       console.log("Emitiendo el mensaje", typing);
       setNuevoMensaje("");
