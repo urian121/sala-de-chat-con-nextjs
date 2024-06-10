@@ -30,8 +30,13 @@ app.prepare().then(() => {
     // Creando evento 'mensaje'
     socket.on("mensaje", (msg) => {
       // Evento cuando se recibe un mensaje del cliente
-      console.log("Mensaje recibido:", msg);
+      console.log("Mensaje recibido**:", msg);
       io.emit("mensaje", msg); // Emitir el mensaje a todos los clientes conectados
+    });
+
+    socket.on("typing", (isTyping) => {
+      console.log("Usuario está escribiendo:", isTyping);
+      socket.broadcast.emit("typing", isTyping); // Emitir a todos los clientes excepto al que lo envió
     });
 
     // Creando evento 'disconnect'
@@ -45,6 +50,6 @@ app.prepare().then(() => {
   server.listen(port, (err) => {
     // Inicia el servidor HTTP
     if (err) throw err; // Lanza un error si ocurre
-    console.log(`> Ready on http://localhost:${port}`); // Mensaje de confirmación cuando el servidor está listo
+    console.log(`> Corriendo en http://localhost:${port}`); // Mensaje de confirmación cuando el servidor está listo
   });
 });

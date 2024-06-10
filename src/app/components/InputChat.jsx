@@ -31,25 +31,12 @@ export default function InputChat({
     }
   };
 
-  const handleFocus = () => {
-    console.log("Click dentro del input");
-    socket.emit("typing", true);
-  };
-
-  const handleBlur = () => {
-    console.log("Click fuera del input");
-    setTyping(false);
-    socket.emit("typing", false);
-  };
-
   return (
     <input
       type="text"
       value={nuevoMensaje}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
       placeholder="Escribe tu mensaje aquí..."
     />
   );

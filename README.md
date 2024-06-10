@@ -56,3 +56,11 @@
     socket.on("typing", (isTyping) => {
         io.emit("typing", isTyping);
       });
+
+En resumen, en server.js, estás configurando el servidor de Socket.IO en el nivel del servidor HTTP y manejando eventos para todas las conexiones de Socket.IO. Mientras que en socket.js, estás configurando un endpoint de Socket.IO específico en una API utilizando Next.js y manejando eventos para conexiones individuales en ese endpoint.
+
+server.js: Este archivo es donde se configura y se inicia el servidor de Socket.IO en el contexto de toda la aplicación. El evento message en este archivo escucha mensajes que provienen de cualquier cliente conectado al servidor y los reenvía a todos los demás clientes. El evento typing escucha cuando un cliente está escribiendo y emite este estado a todos los demás clientes excepto al que lo está escribiendo.
+
+socket.js: Este archivo maneja la lógica específica del endpoint de la API de Socket.IO en tu aplicación. Aquí, nuevamente, escuchas los eventos message y typing. Aunque el manejo de message en este archivo es bastante diferente (envía el mensaje a todos los clientes), la lógica para typing es similar a la de server.js. Cuando un cliente está escribiendo, este archivo emite el estado de escritura a todos los demás clientes conectados a través del evento typing.
+
+En resumen, ambos archivos están escuchando estos eventos porque están involucrados en la gestión de la comunicación en tiempo real en tu aplicación. Aunque la implementación específica de cómo manejar estos eventos puede variar dependiendo de dónde se encuentren dentro de tu aplicación (global vs. específico de la API), la funcionalidad principal de los eventos sigue siendo la misma: comunicación en tiempo real entre clientes.

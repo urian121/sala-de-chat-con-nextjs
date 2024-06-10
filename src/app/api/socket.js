@@ -15,7 +15,7 @@ export default function SocketHandler(req, res) {
   const io = new Server(res.socket.server, {
     path: "/api/socket",
     cors: {
-      origin: "*", // O especifica los dominios permitidos
+      origin: "*", // Especificar aqui el origen de los dominios permitidos
       methods: ["GET", "POST"],
     },
   });
@@ -23,19 +23,10 @@ export default function SocketHandler(req, res) {
   // Aplicar el middleware CORS a la solicitud y respuesta
   corsMiddleware(req, res, () => {
     io.on("connection", (socket) => {
-      const clientId = socket.id;
-      console.log(`A client connected. ID: ${clientId}`);
-      io.emit("client-new", clientId);
-
       // Manejador de eventos para recibir mensajes del cliente
       socket.on("message", (data) => {
-        console.log("Mensaje recibido:", data);
+        console.log("Mensaje recibido Socket:", data);
         io.emit("message", data); // Emitir el mensaje a todos los clientes
-      });
-
-      socket.on("typingUser", (isTyping) => {
-        console.log("llegue a typingUser", isTyping);
-        socket.broadcast.emit("typingUser", isTyping);
       });
 
       // Controlador de eventos para escribir actualizaciones de estado
