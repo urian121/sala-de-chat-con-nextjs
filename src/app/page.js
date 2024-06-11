@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import io from "socket.io-client";
 import {
   Camera,
@@ -22,6 +22,7 @@ export default function Home() {
   const [socket, setSocket] = useState(null);
   const [typing, setTyping] = useState(false);
   const [toggleDarkMode] = useDarkMode();
+  const chatAreaRef = useRef(null);
 
   useEffect(() => {
     // Crea un nuevo socket
@@ -79,8 +80,20 @@ export default function Home() {
       socket.emit("mensaje", mensajeConFecha);
       console.log("Emitiendo el mensaje", typing);
       setNuevoMensaje("");
+
+      // Desplazar el scroll hacia abajo
+      if (chatAreaRef.current) {
+        chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+      }
     }
   };
+
+  // Controlar el scroll hacia abajo
+  useEffect(() => {
+    if (chatAreaRef.current) {
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+    }
+  }, [mensajes]);
 
   return (
     <>
@@ -99,7 +112,7 @@ export default function Home() {
           </div>
         </div>
         <div className="wrapper">
-          <div className="chat-area">
+          <div className="chat-area" ref={chatAreaRef}>
             <ListaMensajes mensajes={mensajes} />
             {typing && (
               <div className="ticontainer">

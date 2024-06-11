@@ -1,8 +1,12 @@
-#
+# Chat en tiempo real con Socket.io / socket.io-client en Next.js
 
 ##### Instalar
 
     npm i socket.io socket.io-client
+
+##### Referencia
+
+https://blog.stackademic.com/building-a-real-time-chat-app-with-next-js-socket-io-and-typescript-e60ba40c09c7
 
 ##### Ajustes en el lado del servidor archivo server.js:
 

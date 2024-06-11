@@ -361,7 +361,9 @@ html {
   display: flex;
   flex-direction: column;
   overflow: auto;
+  scroll-behavior: smooth; /* Añadir scroll suave */
 }
+
 .chat-area-header {
   display: flex;
   position: sticky;
@@ -414,6 +416,7 @@ html {
 .chat-msg {
   display: flex;
   padding: 0 20px 45px;
+  margin-top: 10px;
 }
 .chat-msg-content {
   margin-left: 12px;
@@ -447,7 +450,8 @@ html {
   align-items: flex-end;
 }
 .owner .chat-msg-text {
-  background-color: var(--theme-color);
+  background-color: #6c63ff;
+  /* background-color: var(--theme-color); */
   color: #fff;
   border-radius: 20px 20px 0 20px;
 }
