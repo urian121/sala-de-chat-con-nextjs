@@ -1,5 +1,9 @@
 # Chat en tiempo real con Socket.io / socket.io-client en Next.js
 
+### Resultado final
+
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/sala-de-chat-con-Nextjs.png)
+
 ##### Instalar
 
     npm i socket.io socket.io-client
@@ -68,9 +72,6 @@ socket.js: Este archivo maneja la lógica específica del endpoint de la API de 
 
 En resumen, ambos archivos están escuchando estos eventos porque están involucrados en la gestión de la comunicación en tiempo real en tu aplicación. Aunque la implementación específica de cómo manejar estos eventos puede variar dependiendo de dónde se encuentren dentro de tu aplicación (global vs. específico de la API), la funcionalidad principal de los eventos sigue siendo la misma: comunicación en tiempo real entre clientes.
 
-### Resultado final
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/sala-de-chat-con-Nextjs.png)
 
 ### Expresiones de Gratitud 🎁
 
