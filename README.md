@@ -5,8 +5,7 @@
     npm i socket.io socket.io-client
 
 ##### Referencia
-
-https://blog.stackademic.com/building-a-real-time-chat-app-with-next-js-socket-io-and-typescript-e60ba40c09c7
+    https://blog.stackademic.com/building-a-real-time-chat-app-with-next-js-socket-io-and-typescript-e60ba40c09c7
 
 ##### Ajustes en el lado del servidor archivo server.js:
 
@@ -68,3 +67,16 @@ server.js: Este archivo es donde se configura y se inicia el servidor de Socket.
 socket.js: Este archivo maneja la lógica específica del endpoint de la API de Socket.IO en tu aplicación. Aquí, nuevamente, escuchas los eventos message y typing. Aunque el manejo de message en este archivo es bastante diferente (envía el mensaje a todos los clientes), la lógica para typing es similar a la de server.js. Cuando un cliente está escribiendo, este archivo emite el estado de escritura a todos los demás clientes conectados a través del evento typing.
 
 En resumen, ambos archivos están escuchando estos eventos porque están involucrados en la gestión de la comunicación en tiempo real en tu aplicación. Aunque la implementación específica de cómo manejar estos eventos puede variar dependiendo de dónde se encuentren dentro de tu aplicación (global vs. específico de la API), la funcionalidad principal de los eventos sigue siendo la misma: comunicación en tiempo real entre clientes.
+
+### Resultado final
+
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/sala-de-chat-con-Nextjs.png)
+
+### Expresiones de Gratitud 🎁
+
+    Comenta a otros sobre este proyecto 📢
+    Invita una cerveza 🍺 o un café ☕
+    Paypal iamdeveloper86@gmail.com
+    Da las gracias públicamente 🤓.
+
+## No olvides SUSCRIBIRTE 👍
